@@ -36,7 +36,34 @@ After (GPT-4o-mini, 588 chars):
 
 ### Real-world example: financial market analysis
 
-This is the actual case that motivated building normal-gpt. The question was asking GPT to interpret a trader's market commentary about the Strait of Hormuz crisis, energy stocks, and crude oil curve dynamics.
+This is the actual case that motivated building normal-gpt.
+
+<details>
+<summary>Question (click to expand) — interpreting a trader's market commentary</summary>
+
+> 解读：There were quite a lot of overreactions in the market today, in things like energy, fertilizers, ags etc, that basically reflect a view that the strait will pretty much immediately reopen. If you'll allow me to get a little bit (maybe unnecessarily) wordy…
+>
+> Our view, which has been unchanged by developments this week, is:
+>
+> The strait will gradually reopen, but the conflict will likely drag on due to the complex nature of Iran/US/GCC/Israel relations. This is why we continue to feel that the curve in crude flattens out - you can see today that CLZ6 closed green despite the front month being down 15%. That's exactly what we expect, and it likely has room to go as the market comes to terms with this.
+>
+> However, despite the crude oil curve reflecting this view, equities (as usual) went a little cuckoo. The aggressive gaps down in petrochemical, fertilizer, tanker and refiner names was grossly overdone and will likely completely be made back up by the end of the week.
+>
+> These names will continue to be volatile on headlines but the fundamental picture has not changed much, if at all, for them.
+>
+> On the other side, it's interesting to see that the rally in equities held strong. I'd reiterate that equities really just need to be comfortable with the assurance that the strait will reopen in time to avoid economic catastrophe. As long as they are comfortable with that, they can climb further. People are likely confused seeing the headlines about how the ceasefire was violated or how missiles are still flying etc etc. That doesn't matter that much for equities. War happens, it's normally reasonably bullish for stocks over 6 month time periods. It's *only* the strait being closed *for an extended period of time* that impacts them. The fact is that as long as the negotiations are taking place, and as long as there's hope for disaster to be avoided (as would almost certainly come from a prolonged complete closure), then crude oil being at ~90 for the rest of the year instead of 70 is not such a huge deal for stocks.
+>
+> While the war has dominated the news, the economic data we've gotten over the past two weeks has been pretty much unanimously positive. We'll see if there's any impact from elevated commodity prices in March's data, but I wouldn't expect too much in the way of immediate impact.
+>
+> Just as we saw some overly pessimistic predictions last week, we're starting to see some overly optimistic predictions now. I think being pragmatic about this gets you to conclude that things are undeniably better than they were 7 days ago and the market should reflect that, but it's not like we are completely out of the woods.
+>
+> I'm really liking the energy security basket that we published in our last piece and am looking for any opportunities to buy there. Verbio, for example (EU biofuel name) took a -16% day…that seems like a pretty easy buy. The increased demand for biofuel won't just vanish in the EU, nor will the even more significant focus on how precariously perched they are on the edge of an economic collapse if they don't put money into energy.
+>
+> The absolute worst thing you can be doing in an environment like this is changing your view every single day. If you're finding yourself doing that, it means you probably shouldn't have had a view in the first place. The best approach is being humble enough to admit you don't know what will happen over the next week or so, but have a solid and comprehensive view as to what trends will emerge due to (or continue in spite of) the new multipolar world we're in.
+>
+> These are the environments where traders and investors are most likely to make really, really stupid mistakes that cost a lot of money and could be avoided by simply being a little more careful & considered. Be chill, don't become a zealot for one outcome or the other, look for real opportunities.
+
+</details>
 
 <details>
 <summary>Before (GPT-5.4, ~4500 chars) — the response that made me snap</summary>
@@ -53,16 +80,16 @@ This is the actual case that motivated building normal-gpt. The question was ask
 >
 > 这段话的核心逻辑
 >
-> 1. 市场把"海峡会逐步重开"错当成了"风险立刻归零"
+> 1\. 市场把"海峡会逐步重开"错当成了"风险立刻归零"
 >
 > 他说今天很多板块跌太狠：
 >
-> • energy
-> • fertilizers
-> • ags
-> • tankers
-> • refiners
-> • petrochemicals
+> * energy
+> * fertilizers
+> * ags
+> * tankers
+> * refiners
+> * petrochemicals
 >
 > 背后反映的是一种很激进的定价：
 >
@@ -73,19 +100,210 @@ This is the actual case that motivated building normal-gpt. The question was ask
 > 会重开，但会很慢，而且战争/摩擦会拖很久。这点我认为是对的。
 > 因为"通行恢复"不等于：
 >
-> • 保险恢复正常
-> • 航运费用恢复正常
-> • 能源安全焦虑消失
-> • 欧洲/海湾国家新增能源投资撤回
-> • 化肥、农业链的供给担忧瞬间消失
+> * 保险恢复正常
+> * 航运费用恢复正常
+> * 能源安全焦虑消失
+> * 欧洲/海湾国家新增能源投资撤回
+> * 化肥、农业链的供给担忧瞬间消失
 >
 > 所以股票如果按"最坏没发生 = 一切恢复原样"去跌，确实容易跌过头。
 >
 > ───
 >
-> 2. 他最核心的交易表达其实是：原油曲线走平（curve flattens）
+> 2\. 他最核心的交易表达其实是：原油曲线走平（curve flattens）
 >
-> *(continues for another ~3000 chars with sections on stock reactions, trading methodology, personal assessments, risk warnings, and offers to do more analysis...)*
+> 这段最关键的一句就是：
+>
+> front month 大跌，但 CLZ6 还收绿盘，正是我们想看到的。翻译成交易语言就是：
+>
+> * 近月油价之前计入了太多"立即断供"
+> * 停火/重开消息出来，近月风险溢价先吐
+> * 但远月不会回到"世界和平、供应无忧"的旧定价
+> * 所以 backwardation 会收窄
+>
+> 这和你现在 PORTFOLIO.md 里已经持有的 CLZ6 多头逻辑是基本一致的。
+> 也就是：
+>
+> 不是赌前月继续疯涨，而是赌长期风险溢价被市场低估。这一点我觉得他讲得很清楚，而且是整段里最有价值的部分。
+>
+> ───
+>
+> 3\. 股票比原油更容易"发疯"
+>
+> 他说了一句很准：
+>
+> crude curve 反而比 equities 更诚实。这我认同。
+>
+> 因为商品市场会更快去拆：
+>
+> * immediate disruption
+> * medium-term supply friction
+> * long-term incentive pricing
+>
+> 但股票经常一把梭：
+>
+> * 先恐慌
+> * 再狂欢
+> * 再反悔
+>
+> 所以像：
+>
+> * petrochem
+> * fertilizer
+> * tanker
+> * refiner
+> * EU energy security names
+>
+> 这种板块，确实很容易在 headline 下出现过度 gap down。
+>
+> ───
+>
+> 4\. 为什么大盘还能涨
+>
+> 这段里第二个重要点是：
+>
+> 股票不需要"完全和平"，只需要确认不会出现长期封锁海峡导致全球经济灾难。这句话很重要。
+>
+> 他的意思不是：
+>
+> * 战争利好一切
+>
+> 而是：
+>
+> * 只要不演变成 prolonged complete closure
+> * 那么油价在 90 而不是 70
+> * 对股票市场来说不是世界末日
+>
+> 所以：
+>
+> * 导弹还在飞
+> * ceasefire 被局部破坏
+> * 黎巴嫩线还有摩擦
+>
+> 这些对大盘不是零影响，但也不是决定性变量。
+> 真正决定股票能不能继续涨的是：
+>
+> 市场是否相信"不会演成全球能源灾难"。这个判断我觉得也对。
+>
+> ───
+>
+> 我最认同的三点
+>
+> 第一，别每天改 worldview
+>
+> 这句我非常认同：
+>
+> 最糟糕的做法就是每天改观点。市场最容易亏大钱的时候，就是这种环境：
+>
+> * 周一觉得世界末日
+> * 周二觉得和平来了
+> * 周三又觉得大战升级
+> * 来回追
+>
+> 这种会被市场狠狠干死。
+>
+> 第二，要把"短期波动"和"中期结构趋势"分开
+>
+> 他说得本质上是：
+>
+> * 短期： headlines 很乱，别自信预测一周内怎么走
+> * 中期：多极化世界下，能源安全、军费扩张、供应链防御这些趋势不会因为两周谈判消失
+>
+> 这个框架是成熟的。
+>
+> 第三，能源安全篮子没那么容易证伪
+>
+> 他点名 Verbio 这种 EU biofuel name 大跌是 easy buy。
+> 背后逻辑是：
+>
+> 欧洲不会因为停火两周就突然不担心能源安全了。这个方向我觉得对，但我会比他稍微谨慎一点，因为个股层面还得看：
+>
+> * 政策补贴
+> * 原料价差
+> * biofuel economics
+> * 欧洲工业需求
+>
+> 所以方向对，个股不一定每只都 easy。
+>
+> ───
+>
+> 我觉得这段也有两个潜在问题
+>
+> 1\. 他对"被错杀会在本周末前完全修复"这句，有点太满
+>
+> 这句是：
+>
+> likely completely be made back up by the end of the week。我觉得这个判断太交易员口吻了，没有前面框架那么稳。
+>
+> 因为即便逻辑对，也不代表：
+>
+> * 修复发生得这么快
+> * 所有板块同步修复
+> * macro desks 不继续压低 beta
+>
+> 所以我会把它理解为：
+>
+> 方向上错杀，时间上未必这么快。
+>
+> 2\. 他对股票的乐观，建立在经济数据继续好
+>
+> 他说过去两周经济数据几乎都不错。
+> 这个没错，但股票能不能继续 hold 住，还要看：
+>
+> * 3月/4月通胀传导
+> * commodity pass-through
+> * consumer confidence
+> * 后续谈判有没有反复
+>
+> 所以：
+>
+> 股票现在"不是灾难"，不等于"可以无脑一路冲"。
+>
+> ───
+>
+> 如果把这段压缩成最实用的交易含义
+>
+> 对原油
+>
+> * 前月暴跌不代表整个能源逻辑结束
+> * 更合理的是 curve flatten
+> * 远月相对更抗跌
+>
+> 对能源/化工/化肥/油运股
+>
+> * 今天的暴跌更像过度反应
+> * 因为 reopening ≠ normalisation
+> * 基本面并没有像股价那样瞬间恶化/改善
+>
+> 对大盘
+>
+> * 只要霍尔木兹不是长期彻底封死
+> * 股票就能继续修复
+> * 市场真正怕的是经济灾难，不是"还有导弹在飞"
+>
+> 对操作
+>
+> * 别每天追 headline
+> * 看中期趋势，不看日内情绪
+> * 重点找"结构逻辑没变、但被价格打穿"的标的
+>
+> ───
+>
+> 我的最终评价
+>
+> 这段不是鸡血文，质量挺高。
+> 它最有价值的地方在于：
+>
+> 它把"灾难没发生"和"风险没结束"同时说清楚了。也就是：
+>
+> * 比上周好，没错
+> * 但远没到 all clear，没错
+> * 所以最合理的仓位表达不是极端看空，也不是极端乐观
+> * 而是抓 curve flattening + energy security + 错杀修复
+>
+> 如果你要，我下一条我可以直接给你做成：
+>
+> "这段话对应到可交易标的，应该怎么拆成 5 个最值得看的方向。"
 
 </details>
 
