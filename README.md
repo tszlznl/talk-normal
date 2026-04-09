@@ -354,10 +354,18 @@ This is the actual case that motivated building normal-gpt.
 
 ## Usage
 
-### OpenClaw (one command)
+### OpenClaw
+
+Paste this link into your OpenClaw chat and ask it to install:
+
+```
+https://github.com/hexiecs/normal-gpt
+```
+
+Or install manually:
 
 ```bash
-git clone https://github.com/hexie/normal-gpt.git && cd normal-gpt && bash install.sh
+git clone https://github.com/hexiecs/normal-gpt.git && cd normal-gpt && bash install.sh
 ```
 
 Uninstall:

@@ -354,10 +354,18 @@
 
 ## 使用方法
 
-### OpenClaw (一条命令)
+### OpenClaw
+
+把这个链接粘贴到 OpenClaw 聊天框, 让它帮你安装:
+
+```
+https://github.com/hexiecs/normal-gpt
+```
+
+或者手动安装:
 
 ```bash
-git clone https://github.com/hexie/normal-gpt.git && cd normal-gpt && bash install.sh
+git clone https://github.com/hexiecs/normal-gpt.git && cd normal-gpt && bash install.sh
 ```
 
 卸载:
