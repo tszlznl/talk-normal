@@ -1,17 +1,17 @@
 # normal-gpt
 
-English | [中文](README_CN.md)
+[English](README.md) | 中文
 
-Make GPT talk like a normal person. No filler, no fluff, just the answer.
+让 GPT 说人话。不废话, 不客套, 直接给答案。
 
-## What it does
+## 它做什么
 
-A single system prompt that transforms GPT's verbose, corporate-sounding output into direct, informative responses. Tested on GPT-4o-mini (**71% reduction**) and GPT-5.4 (**56% reduction**) while preserving all useful information. [See full comparison with all 10 test questions and complete answers](TEST_RESULTS.md).
+一段 system prompt, 把 GPT 啰嗦的、客服腔的输出变成直接、有信息量的回答。在 GPT-4o-mini 上测试 **减少 71%** 输出长度, GPT-5.4 上 **减少 56%**, 同时保留所有有用信息。[查看 10 个测试问题的完整对比](TEST_RESULTS.md)。
 
-**Question: "What is Python?"**
+**问题: "What is Python?"**
 
 <details>
-<summary>Before (GPT-4o-mini, 1584 chars)</summary>
+<summary>改造前 (GPT-4o-mini, 1584 字符)</summary>
 
 > Python is a high-level, interpreted programming language known for its readability and simplicity. It was created by Guido van Rossum and first released in 1991. Python supports multiple programming paradigms, including procedural, object-oriented, and functional programming, making it versatile for various applications.
 >
@@ -33,15 +33,15 @@ A single system prompt that transforms GPT's verbose, corporate-sounding output 
 
 </details>
 
-After (GPT-4o-mini, 588 chars):
+改造后 (GPT-4o-mini, 588 字符):
 > Python is a high-level, interpreted programming language known for its readability and versatility. It supports multiple programming paradigms, including procedural, object-oriented, and functional programming. Python is widely used in web development, data analysis, artificial intelligence, scientific computing, and automation due to its extensive libraries and frameworks. Its simplicity makes it an excellent choice for beginners and experienced developers alike.
 
-### Real-world example: financial market analysis
+### 真实案例: 金融市场分析
 
-This is the actual case that motivated building normal-gpt.
+这个案例直接促使我做了这个项目。
 
 <details>
-<summary>Question (click to expand) — interpreting a trader's market commentary</summary>
+<summary>问题 (点击展开) — 解读交易员的市场评论</summary>
 
 > 解读：There were quite a lot of overreactions in the market today, in things like energy, fertilizers, ags etc, that basically reflect a view that the strait will pretty much immediately reopen. If you'll allow me to get a little bit (maybe unnecessarily) wordy…
 >
@@ -68,7 +68,7 @@ This is the actual case that motivated building normal-gpt.
 </details>
 
 <details>
-<summary>Before (GPT-5.4, ~4500 chars) — the response that made me snap</summary>
+<summary>改造前 (GPT-5.4, ~4500 字符) — 让我忍无可忍的回答</summary>
 
 > 这段我觉得整体是对的，而且是很成熟的中间派框架。
 >
@@ -310,7 +310,7 @@ This is the actual case that motivated building normal-gpt.
 </details>
 
 <details>
-<summary>After (GPT-5.4 + normal-gpt) — same information, 1/3 the length, no filler, no "如果你要我还可以...", reads like a human analyst wrote it</summary>
+<summary>改造后 (GPT-5.4 + normal-gpt) — 同样的信息量, 1/3 的长度, 没有废话, 没有"如果你要我还可以...", 读起来像人写的分析</summary>
 
 > 这段的核心就一句话：
 >
@@ -352,30 +352,30 @@ This is the actual case that motivated building normal-gpt.
 
 </details>
 
-## Usage
+## 使用方法
 
-### OpenClaw (one command)
+### OpenClaw (一条命令)
 
 ```bash
 git clone https://github.com/hexie/normal-gpt.git && cd normal-gpt && bash install.sh
 ```
 
-Uninstall:
+卸载:
 ```bash
 bash install.sh --uninstall
 ```
 
-The script auto-detects your `AGENTS.md` and injects the prompt. Start a new conversation to take effect.
+脚本会自动找到你的 `AGENTS.md` 并注入 prompt。开一个新对话即可生效。
 
-### ChatGPT custom instructions
+### ChatGPT 自定义指令
 
-Copy the contents of `prompt.md` into ChatGPT's custom instructions field.
+把 `prompt.md` 的内容复制到 ChatGPT 的自定义指令里。
 
-### Any OpenAI API tool
+### 其他 OpenAI API 工具
 
-Copy the contents of `prompt.md` into the system prompt field of whatever tool you use (Cursor, Continue, your own app, etc.)
+把 `prompt.md` 的内容复制到你使用的工具的 system prompt 字段 (Cursor, Continue, 或你自己的应用)。
 
-### API calls
+### API 调用
 
 ```bash
 curl https://api.openai.com/v1/chat/completions \
@@ -384,20 +384,20 @@ curl https://api.openai.com/v1/chat/completions \
   -d '{
     "model": "gpt-4o-mini",
     "messages": [
-      {"role": "system", "content": "<contents of prompt.md>"},
+      {"role": "system", "content": "<prompt.md 的内容>"},
       {"role": "user", "content": "What is Python?"}
     ]
   }'
 ```
 
-## Test results
+## 测试结果
 
-10 prompts, temperature=0. Measured in characters. [Full responses for every question](TEST_RESULTS.md).
+10 个问题, temperature=0, 按字符数统计。[查看每个问题的完整回答对比](TEST_RESULTS.md)。
 
-### GPT-4o-mini — average reduction: 71%
+### GPT-4o-mini — 平均减少 71%
 
-| # | Prompt | Original | normal-gpt | Reduction |
-|---|--------|----------|-----------|-----------|
+| # | 问题 | 原始 | normal-gpt | 减少 |
+|---|------|------|-----------|------|
 | 1 | TCP vs UDP? | 2516 | 829 | 67% |
 | 2 | What is Python? | 1584 | 588 | 62% |
 | 3 | Explain how HTTP works | 3713 | 929 | 74% |
@@ -409,10 +409,10 @@ curl https://api.openai.com/v1/chat/completions \
 | 9 | Redis和Memcached哪个好? | 1857 | 333 | 82% |
 | 10 | Microservices pros/cons | 3393 | 691 | 79% |
 
-### GPT-5.4 — average reduction: 56%
+### GPT-5.4 — 平均减少 56%
 
-| # | Prompt | Original | normal-gpt | Reduction |
-|---|--------|----------|-----------|-----------|
+| # | 问题 | 原始 | normal-gpt | 减少 |
+|---|------|------|-----------|------|
 | 1 | TCP vs UDP? | 1000 | 611 | 38% |
 | 2 | What is Python? | 751 | 609 | 18% |
 | 3 | Explain how HTTP works | 5222 | 1707 | 67% |
@@ -424,8 +424,8 @@ curl https://api.openai.com/v1/chat/completions \
 | 9 | Redis和Memcached哪个好? | 3197 | 1154 | 63% |
 | 10 | Microservices pros/cons | 3838 | 1712 | 55% |
 
-GPT-5.4 is already more concise than 4o-mini out of the box. normal-gpt still cuts verbose responses by 38-87% on both models.
+GPT-5.4 本身就比 4o-mini 简洁不少。normal-gpt 在两个模型上都能将啰嗦回复减少 38-87%。
 
-## License
+## 许可证
 
 MIT
