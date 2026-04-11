@@ -19,4 +19,4 @@ cp "$REPO_ROOT/install.sh" "$SKILL_DIR/install.sh"
 chmod +x "$SKILL_DIR/install.sh"
 
 echo "Synced prompt.md and install.sh into $SKILL_DIR/"
-echo "Next: clawhub skill publish ./skill --slug talk-normal --version X.Y.Z --tags latest"
+echo "Next: clawhub publish ./skill --slug talk-normal --version X.Y.Z --tags latest --changelog \"...\""
