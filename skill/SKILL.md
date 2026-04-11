@@ -1,8 +1,8 @@
 ---
 name: talk-normal
 slug: talk-normal
-description: Stop LLM slop. A 17-rule system prompt that cuts verbose, corporate-sounding LLM output by 56-71% (measured) while preserving information. Works bilingually (English + Chinese). Installs into your AGENTS.md as an always-on behavior modifier.
-version: 0.3.0
+description: Stop LLM slop. A curated system prompt that cuts verbose, corporate-sounding LLM output by 56-71% (measured) while preserving information. Works bilingually (English + Chinese). Installs into your AGENTS.md as an always-on behavior modifier.
+version: 0.3.1
 tags: [prompt, anti-slop, concise, system-prompt, chinese, bilingual, always-on]
 homepage: https://github.com/hexiecs/talk-normal
 license: MIT
@@ -10,11 +10,11 @@ license: MIT
 
 # talk-normal
 
-A 17-rule system prompt that stops your LLM from writing like a LinkedIn post. Measured: 71% character reduction on GPT-4o-mini, 56% on GPT-5.4, across 10 prompts in English and Chinese, without losing information.
+A curated system prompt that stops your LLM from writing like a LinkedIn post. Measured: 71% character reduction on GPT-4o-mini, 56% on GPT-5.4, across 10 prompts in English and Chinese, without losing information.
 
 ## What this skill does
 
-When invoked, this skill installs the talk-normal rules into your workspace's `AGENTS.md` file as an always-on behavior modifier. After install, every reply your OpenClaw agent produces follows the 17 rules. The rules live between `# --- talk-normal BEGIN ---` and `# --- talk-normal END ---` markers so they do not conflict with your existing rules in `AGENTS.md`.
+When invoked, this skill installs the talk-normal rules into your workspace's `AGENTS.md` file as an always-on behavior modifier. After install, every reply your OpenClaw agent produces follows the rules in `prompt.md`. The rules live between `# --- talk-normal BEGIN ---` and `# --- talk-normal END ---` markers so they do not conflict with your existing rules in `AGENTS.md`.
 
 This is not a workflow skill you invoke per turn. It is a one-time installer that makes your agent permanently less verbose until you uninstall.
 
@@ -36,23 +36,15 @@ bash install.sh --uninstall
 
 ## What gets installed
 
-The contents of `prompt.md` get injected into your `AGENTS.md`. The rules cover:
+The contents of `prompt.md` get injected into your `AGENTS.md`. The rules target the specific slop patterns that make LLM output sound corporate and padded, grouped into a few categories:
 
-1. Lead with the answer, then add context only if it helps
-2. Kill filler phrases: "Great question", "I'd be happy to", "It's worth noting", "Certainly", "让我们一起来看看", "综上所述"
-3. Never restate the question
-4. Yes/no questions get a direct answer plus one sentence
-5. Comparisons give a recommendation, not a balanced essay
-6. Code answers give the code, explain only if non-trivial
-7. Explanations cap at 3-5 sentences for conceptual questions
-8. Structure (bullets, numbered steps) only when the content has natural structure, not as decoration
-9. Match depth to complexity
-10. No hypothetical follow-up offers and no conditional next-step menus
-11. No plain-language restatements ("翻成人话", "in other words")
-12. End with a concrete recommendation, no "In summary" / "Hope this helps" closings
-13. Pros/cons: max 3-4 points per side
-14. No "不是X，而是Y" / reject-then-correct framing in any variant
-15. Plus additional rules covering bullet overuse, corporate tone, hedging
+- **Filler and hedging** — banned opening phrases ("Great question", "I'd be happy to", "让我们一起来看看"), no throat-clearing, no restating the question
+- **Structural discipline** — lead with the answer, match depth to complexity, use bullets only when content is genuinely parallel, cap explanations for conceptual questions
+- **Closing patterns** — no "In summary" / "Hope this helps" / "综上所述", no hypothetical follow-up offers, no conditional next-step menus ("If you want I can also...")
+- **Rhetorical tics** — no "不是X，而是Y" / reject-then-correct framing in any variant, no plain-language restatements ("翻成人话", "in other words")
+- **Shape of comparisons** — give a recommendation with brief reasoning, cap pros/cons lists, no balanced-essay posture
+
+The exact rule list lives in `prompt.md` and evolves as new slop patterns get caught in the wild. Every commit to that file is a named slop pattern killed.
 
 ## Updating to the latest rules
 
