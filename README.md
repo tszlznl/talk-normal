@@ -397,7 +397,9 @@ Start a new conversation to take effect.
 
 ### ChatGPT custom instructions
 
-Copy the contents of `prompt.md` into ChatGPT's [custom instructions](https://chatgpt.com/#settings/Personalization) field.
+Copy the contents of [`prompt-chatgpt.md`](prompt-chatgpt.md) into ChatGPT's [custom instructions](https://chatgpt.com/#settings/Personalization) field.
+
+ChatGPT's custom instructions fields are capped at 1500 characters each. `prompt-chatgpt.md` is a compressed variant built to fit that limit while preserving every load-bearing rule from `prompt.md` (negation-frame ban, closing-stamp ban, filler list, conditional-menu ban, few-shot BAD/GOOD examples). Use `prompt.md` everywhere there is no length cap (OpenClaw, API, Cursor, Continue); use `prompt-chatgpt.md` only for the ChatGPT custom instructions field.
 
 ### Any OpenAI API tool
 

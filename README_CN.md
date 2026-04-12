@@ -397,7 +397,9 @@ bash install.sh --uninstall
 
 ### ChatGPT 自定义指令
 
-把 `prompt.md` 的内容复制到 ChatGPT 的[自定义指令](https://chatgpt.com/#settings/Personalization)里。
+把 [`prompt-chatgpt.md`](prompt-chatgpt.md) 的内容复制到 ChatGPT 的[自定义指令](https://chatgpt.com/#settings/Personalization)里。
+
+ChatGPT 的自定义指令每个 field 上限是 1500 字符。`prompt-chatgpt.md` 是专门针对这个限制压缩的版本, 保留了 `prompt.md` 里所有承重规则 (禁止 "不是X而是Y" 句式、禁止 summary stamp 结尾、filler 词禁令、条件式菜单禁令, 以及 BAD/GOOD few-shot 示例)。没有长度限制的场景 (OpenClaw、API、Cursor、Continue) 用 `prompt.md`, ChatGPT 自定义指令 field 用 `prompt-chatgpt.md`。
 
 ### 其他 OpenAI API 工具
 
