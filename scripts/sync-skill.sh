@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 # sync-skill.sh — copy prompt.md and install.sh from the repo root into skill/
-# and auto-update skill/SKILL.md's version field to match the version header
-# at the top of prompt.md. Single source of truth for the version is prompt.md.
+# and hermes/, and auto-update each SKILL.md's version field to match the
+# version header at the top of prompt.md. Single source of truth for the
+# version is prompt.md.
 #
 # Run this before `clawhub publish ./skill`.
 set -euo pipefail
@@ -9,11 +10,18 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 SKILL_DIR="$REPO_ROOT/skill"
+HERMES_DIR="$REPO_ROOT/hermes"
 PROMPT_FILE="$REPO_ROOT/prompt.md"
 SKILL_MANIFEST="$SKILL_DIR/SKILL.md"
+HERMES_MANIFEST="$HERMES_DIR/SKILL.md"
 
 if [ ! -d "$SKILL_DIR" ]; then
   echo "Error: $SKILL_DIR does not exist" >&2
+  exit 1
+fi
+
+if [ ! -d "$HERMES_DIR" ]; then
+  echo "Error: $HERMES_DIR does not exist" >&2
   exit 1
 fi
 
@@ -32,21 +40,25 @@ if [ -z "$VERSION" ]; then
   exit 1
 fi
 
-# Copy the source files into skill/
-cp "$PROMPT_FILE" "$SKILL_DIR/prompt.md"
-cp "$REPO_ROOT/install.sh" "$SKILL_DIR/install.sh"
-chmod +x "$SKILL_DIR/install.sh"
+# Copy the source files into skill/ and hermes/
+for dest in "$SKILL_DIR" "$HERMES_DIR"; do
+  cp "$PROMPT_FILE" "$dest/prompt.md"
+  cp "$REPO_ROOT/install.sh" "$dest/install.sh"
+  chmod +x "$dest/install.sh"
+done
 
-# Update skill/SKILL.md's version: field to match prompt.md
-if [ -f "$SKILL_MANIFEST" ]; then
-  sed -i.bak "s/^version: .*/version: $VERSION/" "$SKILL_MANIFEST"
-  rm -f "${SKILL_MANIFEST}.bak"
-else
-  echo "Warning: $SKILL_MANIFEST not found, skipping version bump" >&2
-fi
+# Update SKILL.md version: field in both bundles
+for manifest in "$SKILL_MANIFEST" "$HERMES_MANIFEST"; do
+  if [ -f "$manifest" ]; then
+    sed -i.bak "s/^version: .*/version: $VERSION/" "$manifest"
+    rm -f "${manifest}.bak"
+  else
+    echo "Warning: $manifest not found, skipping version bump" >&2
+  fi
+done
 
-echo "Synced prompt.md and install.sh into $SKILL_DIR/"
-echo "Bumped $SKILL_MANIFEST version field to $VERSION"
+echo "Synced prompt.md and install.sh into $SKILL_DIR/ and $HERMES_DIR/"
+echo "Bumped SKILL.md version fields to $VERSION"
 
 # Soft reminder: if prompt.md has any commits newer than the most recent
 # CHANGELOG.md commit, the user probably forgot to update CHANGELOG before
@@ -64,4 +76,6 @@ if git -C "$REPO_ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
   fi
 fi
 
-echo "Next: clawhub publish ./skill --slug talk-normal --version $VERSION --tags latest --changelog \"...\""
+echo "Next:"
+echo "  ClawHub: clawhub publish ./skill --slug talk-normal --version $VERSION --tags latest --changelog \"...\""
+echo "  Hermes:  hermes skills publish ./hermes (or users install directly from GitHub)"

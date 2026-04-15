@@ -657,6 +657,35 @@ bash install.sh --uninstall
 
 Start a new conversation to take effect.
 
+### Hermes Agent
+
+Two ways:
+
+**Option 1: Install from GitHub**
+
+```bash
+hermes skills install hexiecs/talk-normal
+```
+
+Then run the installer in your project directory:
+
+```bash
+bash ~/.hermes/skills/talk-normal/install.sh
+```
+
+**Option 2: Manual git clone**
+
+```bash
+git clone https://github.com/hexiecs/talk-normal.git && cd talk-normal && bash install.sh
+```
+
+The installer auto-detects your workspace config file (`.hermes.md`, `HERMES.md`, or `AGENTS.md`) and injects the rules. Hermes freezes context files at session start, so start a new session to take effect.
+
+Uninstall:
+```bash
+bash install.sh --uninstall
+```
+
 ### ChatGPT custom instructions
 
 Copy the contents of [`prompt-chatgpt.md`](prompt-chatgpt.md) into ChatGPT's [custom instructions](https://chatgpt.com/#settings/Personalization) field.

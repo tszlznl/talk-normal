@@ -31,11 +31,17 @@ abs_path() {
   fi
 }
 
-# Detect OpenClaw workspace
+# Detect agent workspace config file.
+# Hermes prioritises .hermes.md / HERMES.md over AGENTS.md, so we check those
+# first. This lets Hermes users keep their rules separate from OpenClaw if they
+# want to, while still falling back to AGENTS.md for both platforms.
 find_agents_md() {
-  # Check common locations
   for dir in "." "$HOME" "${OPENCLAW_WORKSPACE:-}"; do
     [ -z "$dir" ] && continue
+    # Hermes-preferred files first
+    [ -f "$dir/.hermes.md" ] && echo "$dir/.hermes.md" && return
+    [ -f "$dir/HERMES.md" ] && echo "$dir/HERMES.md" && return
+    # Then the shared AGENTS.md (works for both OpenClaw and Hermes)
     [ -f "$dir/AGENTS.md" ] && echo "$dir/AGENTS.md" && return
   done
   echo ""
