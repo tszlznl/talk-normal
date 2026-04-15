@@ -680,7 +680,8 @@ cd ~ && bash ~/.hermes/skills/skill-hermes/install.sh
 **方式 2: 手动 git clone**
 
 ```bash
-git clone https://github.com/hexiecs/talk-normal.git && cd talk-normal && bash install.sh
+git clone https://github.com/hexiecs/talk-normal.git
+cd ~ && bash talk-normal/install.sh
 ```
 
 安装器会自动检测你的工作区配置文件 (`.hermes.md`、`HERMES.md` 或 `AGENTS.md`) 并注入规则。Hermes 在会话启动时冻结上下文文件, 所以安装后需要开一个新会话才生效。

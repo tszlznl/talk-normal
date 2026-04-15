@@ -680,7 +680,8 @@ To install for a specific project instead, `cd` into that project directory befo
 **Option 2: Manual git clone**
 
 ```bash
-git clone https://github.com/hexiecs/talk-normal.git && cd talk-normal && bash install.sh
+git clone https://github.com/hexiecs/talk-normal.git
+cd ~ && bash talk-normal/install.sh
 ```
 
 The installer auto-detects your workspace config file (`.hermes.md`, `HERMES.md`, or `AGENTS.md`) and injects the rules. Hermes freezes context files at session start, so start a new session to take effect.
